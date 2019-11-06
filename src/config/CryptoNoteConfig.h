@@ -17,8 +17,8 @@
 namespace CryptoNote {
 namespace parameters {
 
-const uint64_t DIFFICULTY_TARGET                             = 60; // seconds
-const uint64_t DIFFICULTY_TARGET_V2                          = 60; // seconds
+const uint64_t DIFFICULTY_TARGET                             = 40; // seconds
+const uint64_t DIFFICULTY_TARGET_V2                          = 40; // seconds
 
 /* Height to swap to DIFFICULTY_TARGET_V2 */
 const uint64_t DIFFICULTY_TARGET_V2_HEIGHT                   = 1000000;
@@ -27,7 +27,7 @@ const uint32_t CRYPTONOTE_MAX_BLOCK_NUMBER                   = 500000000;
 const size_t   CRYPTONOTE_MAX_BLOCK_BLOB_SIZE                = 500000000;
 const size_t   CRYPTONOTE_MAX_TX_SIZE                        = 1000000000;
 const uint64_t CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX       = 0x28c9;
-const uint32_t CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW          = 120;
+const uint32_t CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW          = 30;
 const uint64_t CRYPTONOTE_BLOCK_FUTURE_TIME_LIMIT            = 6 * DIFFICULTY_TARGET;
 
 const size_t   BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW             = 11;
@@ -35,8 +35,8 @@ const size_t   BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW             = 11;
 // MONEY_SUPPLY - total number coins to be generated
 const uint64_t MONEY_SUPPLY                                  = UINT64_C(100000000000);
 
-const uint32_t EMISSION_SPEED_FACTOR                         = 23;
-const uint32_t EMISSION_SPEED_FACTOR_V2                      = 24;
+const uint32_t EMISSION_SPEED_FACTOR                         = 24;
+const uint32_t EMISSION_SPEED_FACTOR_V2                      = 25;
 
 static_assert(EMISSION_SPEED_FACTOR    <= 8 * sizeof(uint64_t), "Bad EMISSION_SPEED_FACTOR");
 static_assert(EMISSION_SPEED_FACTOR_V2 <= 8 * sizeof(uint64_t), "Bad EMISSION_SPEED_FACTOR");
@@ -45,7 +45,7 @@ static_assert(EMISSION_SPEED_FACTOR_V2 <= 8 * sizeof(uint64_t), "Bad EMISSION_SP
 const uint64_t EMISSION_SPEED_FACTOR_V2_HEIGHT               = 1000000;
 
 /* Premine amount */
-const uint64_t GENESIS_BLOCK_REWARD                          = UINT64_C(0);
+const uint64_t GENESIS_BLOCK_REWARD                          = UINT64_C(0); // This needs to be updated once total amount of coins are known
 
 /* How to generate a premine:
 
@@ -100,10 +100,10 @@ const uint64_t EXPECTED_NUMBER_OF_BLOCKS_PER_DAY             = 24 * 60 * 60 / DI
 const uint64_t DIFFICULTY_WINDOW                             = 60;
 const uint64_t DIFFICULTY_BLOCKS_COUNT                       = DIFFICULTY_WINDOW + 1;
 
-const size_t   MAX_BLOCK_SIZE_INITIAL                        = 100000;
+const size_t   MAX_BLOCK_SIZE_INITIAL                        = 50000;
 const uint64_t MAX_BLOCK_SIZE_GROWTH_SPEED_NUMERATOR         = 100 * 1024;
 const uint64_t MAX_BLOCK_SIZE_GROWTH_SPEED_DENOMINATOR       = 365 * 24 * 60 * 60 / DIFFICULTY_TARGET;
-const uint64_t MAX_EXTRA_SIZE                                = 140000;
+const uint64_t MAX_EXTRA_SIZE                                = 1024;
 const uint64_t MAX_EXTRA_SIZE_V2                             = 1024;
 const uint64_t MAX_EXTRA_SIZE_V2_HEIGHT                      = 700000;
 
@@ -183,8 +183,8 @@ const size_t   BLOCKS_IDS_SYNCHRONIZING_DEFAULT_COUNT        =  10000;  //by def
 const uint64_t BLOCKS_SYNCHRONIZING_DEFAULT_COUNT            =  100;    //by default, blocks count in blocks downloading
 const size_t   COMMAND_RPC_GET_BLOCKS_FAST_MAX_COUNT         =  1000;
 
-const int      P2P_DEFAULT_PORT                              =  42081;
-const int      RPC_DEFAULT_PORT                              =  42082;
+const int      P2P_DEFAULT_PORT                              =  9924;
+const int      RPC_DEFAULT_PORT                              =  9925;
 const int      SERVICE_DEFAULT_PORT                          =  1337;
 
 const size_t   P2P_LOCAL_WHITE_PEERLIST_LIMIT                =  1000;
@@ -219,17 +219,15 @@ const uint64_t DATABASE_READ_BUFFER_MB_DEFAULT_SIZE          = 1024;          //
 const uint32_t DATABASE_DEFAULT_MAX_OPEN_FILES               = 500;           // 500 files
 const uint16_t DATABASE_DEFAULT_BACKGROUND_THREADS_COUNT     = 10;            // 10 DB threads
 
-const char     LATEST_VERSION_URL[]                          = "https://github.com/derogold/derogold/releases";
-const std::string LICENSE_URL                                = "https://github.com/derogold/derogold/blob/master/LICENSE";
+const char     LATEST_VERSION_URL[]                          = "https://github.com/aquagold/aquagold/releases";
+const std::string LICENSE_URL                                = "https://github.com/aquagold/aquagold/blob/master/LICENSE";
 const static   boost::uuids::uuid CRYPTONOTE_NETWORK         =
 {
-    {  0x15, 0x5e, 0x69, 0x42, 0x91, 0x48, 0x2c, 0x4c, 0x10, 0x87, 0x27, 0x3f, 0x82, 0x6a, 0x8f, 0x50  }
+    {  0x50, 0x69, 0x5e, 0x42, 0x21, 0x91, 0x4c, 0x2c, 0x10, 0x87, 0x27, 0x3f, 0x82, 0x6a, 0x8f, 0x15  }
 };
 
 const char* const SEED_NODES[] = {
     "94.214.85.66:42081", // Gabcraftia
-    "40.127.201.242:42081", // Gabcraftia
-     "40.127.102.36:42081", // Gabcraftia
      "34.77.48.29:42081", // miningpool.fun
 };
 } // CryptoNote
