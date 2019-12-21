@@ -2,7 +2,7 @@
 // Copyright (c) 2014-2018, The Monero Project
 // Copyright (c) 2018-2019, The TurtleCoin Developers
 // Copyright (c) 2018-2019, The DeroGold Association
-// Copyright (c) 2019-2019, The AquaGold Developers
+// Copyright (c) 2019-2019, The BitEarth Developers
 // Please see the included LICENSE file for more information.
 
 #pragma once
@@ -164,7 +164,7 @@ const char     P2P_NET_DATA_FILENAME[]                       = "p2pstate.bin";
 const char     MINER_CONFIG_FILE_NAME[]                      = "miner_conf.json";
 } // parameters
 
-const char     CRYPTONOTE_NAME[]                             = "AquaGold";
+const char     CRYPTONOTE_NAME[]                             = "BitEarth";
 
 const uint8_t  TRANSACTION_VERSION_1                         =  1;
 const uint8_t  TRANSACTION_VERSION_2                         =  2;
@@ -219,8 +219,8 @@ const uint64_t DATABASE_READ_BUFFER_MB_DEFAULT_SIZE          = 1024;          //
 const uint32_t DATABASE_DEFAULT_MAX_OPEN_FILES               = 500;           // 500 files
 const uint16_t DATABASE_DEFAULT_BACKGROUND_THREADS_COUNT     = 10;            // 10 DB threads
 
-const char     LATEST_VERSION_URL[]                          = "https://github.com/aquagold-project/aquagold/releases/latest";
-const std::string LICENSE_URL                                = "https://github.com/aquagold-project/aquagold/blob/master/LICENSE";
+const char     LATEST_VERSION_URL[]                          = "https://github.com/bitearth-project/bitearth/releases/latest";
+const std::string LICENSE_URL                                = "https://github.com/bitearth-project/bitearth/blob/master/LICENSE";
 const static   boost::uuids::uuid CRYPTONOTE_NETWORK         =
 {
     {  0x50, 0x69, 0x5e, 0x42, 0x21, 0x91, 0x4c, 0x2c, 0x10, 0x87, 0x27, 0x3f, 0x82, 0x6a, 0x8f, 0x15  }
