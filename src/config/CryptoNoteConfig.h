@@ -45,7 +45,7 @@ static_assert(EMISSION_SPEED_FACTOR_V2 <= 8 * sizeof(uint64_t), "Bad EMISSION_SP
 const uint64_t EMISSION_SPEED_FACTOR_V2_HEIGHT               = 1000000;
 
 /* Premine amount */
-const uint64_t GENESIS_BLOCK_REWARD                          = UINT64_C(3011391.74); // Coins for swapping
+const uint64_t GENESIS_BLOCK_REWARD                          = UINT64_C(3011391); // Coins for swapping
 /* How to generate a premine:
 
 * Compile your code
