@@ -11,10 +11,10 @@
 namespace WalletConfig
 {
     /* The prefix your coins address starts with */
-    const std::string_view addressPrefix = "ag";
+    const std::string_view addressPrefix = "bte";
 
     /* Your coins 'Ticker', e.g. Monero = XMR, Bitcoin = BTC */
-    const std::string ticker = "AQUA";
+    const std::string ticker = "BTE";
 
     /* The filename to output the CSV to in save_csv */
     const std::string csvFilename = "transactions.csv";
@@ -24,14 +24,14 @@ namespace WalletConfig
     const std::string addressBookFilename = ".addressBook.json";
 
     /* The name of your deamon */
-    const std::string daemonName = "AquaGoldd";
+    const std::string daemonName = "BitEarthd";
 
     /* The name to call this wallet */
     const std::string walletName = "zedwallet";
 
     /* The name of service/walletd, the programmatic rpc interface to a
        wallet */
-    const std::string walletdName = "AquaGold-service";
+    const std::string walletdName = "BitEarth-service";
 
     /* The full name of your crypto */
     const std::string coinName = std::string(CryptoNote::CRYPTONOTE_NAME);
@@ -44,7 +44,7 @@ namespace WalletConfig
                                                ::CRYPTONOTE_DISPLAY_DECIMAL_POINT;
 
     /* The length of a standard address for your coin */
-    const uint16_t standardAddressLength = 97;
+    const uint16_t standardAddressLength = 98;
 
     /* The length of an integrated address for your coin - It's the same as
        a normal address, but there is a paymentID included in there - since
