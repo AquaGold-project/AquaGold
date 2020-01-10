@@ -226,6 +226,6 @@ const static   boost::uuids::uuid CRYPTONOTE_NETWORK         =
 };
 
 const char* const SEED_NODES[] = {
-     "142.93.239.206:9924", // MunchieHigh420
+     "94.214.85.66:9924", // Gabcraftia
 };
 } // CryptoNote
