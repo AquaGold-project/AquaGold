@@ -2,7 +2,7 @@
 // Copyright (c) 2014-2018, The Monero Project
 // Copyright (c) 2018-2019, The TurtleCoin Developers
 // Copyright (c) 2018-2019, The DeroGold Association
-// Copyright (c) 2019-2019, The BitEarth Developers
+// Copyright (c) 2019-2020, The BitEarth Developers
 // Please see the included LICENSE file for more information.
 
 #pragma once
@@ -66,7 +66,7 @@ TurtleCoind --print-genesis-tx --genesis-block-reward-address TRTLv2Fyavy8CXG8BP
 * You should see your premine appear in the previously generated wallet.
 
 */
-const char GENESIS_COINBASE_TX_HEX[] = "011e01ff00019c89cc8f01020be030dc716a7348df49af2f2f57cde5d6831977787d2d09779bd018140e21482101286ed6420f77b33cce355cbdf9d3b92df877300b1721c06dca68ed65005583bb";
+const char GENESIS_COINBASE_TX_HEX[] = "011e01ff00019c89cc8f010232348460385e94f26c0db0883a82b42b61a87841a00bea3457b80d3dd3109479210132870a2cbe7d67456b7abe724dc756c4a4ec84bf01eea6c005884dff85ce0833";
 static_assert(sizeof(GENESIS_COINBASE_TX_HEX)/sizeof(*GENESIS_COINBASE_TX_HEX) != 1, "GENESIS_COINBASE_TX_HEX must not be empty.");
 
 /* This is the unix timestamp of the first "mined" block (technically block 2, not the genesis block)
@@ -222,7 +222,7 @@ const char     LATEST_VERSION_URL[]                          = "https://github.c
 const std::string LICENSE_URL                                = "https://github.com/bitearth-project/bitearth/blob/master/LICENSE";
 const static   boost::uuids::uuid CRYPTONOTE_NETWORK         =
 {
-    {  0x50, 0x69, 0x5e, 0x42, 0x21, 0x91, 0x4c, 0x2c, 0x10, 0x87, 0x27, 0x3f, 0x82, 0x6a, 0x8f, 0x15  }
+    {  0x50, 0x69, 0x5e, 0x42, 0x21, 0x91, 0x4c, 0x2c, 0x10, 0x87, 0x27, 0x3f, 0x6a, 0x82, 0x15, 0x8f  }
 };
 
 const char* const SEED_NODES[] = {
