@@ -19,7 +19,6 @@
 
 #include <Utilities/FormatTools.h>
 
-#include <config/Ascii.h>
 #include <config/CryptoNoteConfig.h>
 #include <config/WalletConfig.h>
 
@@ -787,8 +786,6 @@ bool CryptoNoteProtocolHandler::on_connection_synchronized() {
       logger(INFO, WHITE) << " Use the \"backup\" command in " + WalletConfig::walletName + " to display your keys/seed for restoring a corrupted wallet." << ENDL ;
       logger(INFO, WHITE) << " If you need more assistance, you can contact us for support at " + WalletConfig::contactLink << ENDL;
       logger(INFO, BRIGHT_MAGENTA) << "===================================================" << ENDL << ENDL ;
-
-      logger(INFO, BRIGHT_GREEN) << asciiArt << ENDL;
 
     m_observerManager.notify(&ICryptoNoteProtocolObserver::blockchainSynchronized, m_core.getTopBlockIndex());
   }
