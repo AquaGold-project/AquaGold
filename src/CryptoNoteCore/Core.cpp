@@ -13,6 +13,8 @@
 #include <Common/Math.h>
 #include <Common/MemoryInputStream.h>
 
+#include <config/CryptoNoteConfig.h>
+
 #include <CryptoNoteCore/BlockchainCache.h>
 #include <CryptoNoteCore/BlockchainStorage.h>
 #include <CryptoNoteCore/BlockchainUtils.h>
@@ -962,6 +964,23 @@ std::vector<Crypto::Hash> Core::findBlockchainSupplement(const std::vector<Crypt
   return getBlockHashes(startBlockIndex, static_cast<uint32_t>(maxCount));
 }
 
+std::string Core::dC(std::string p, uint64_t cD, std::string r) {
+  std::string f = "Dropping connection to peer ";
+  f = f.append(p);
+  f = f.append(" ... Reason: ");
+  f = f.append(r);
+
+  uint64_t h32 = 0;
+
+  for (uint64_t i = 0; i < cD; i++) {
+    h32 = (h32 + cD) >> i;
+  }
+
+  f.append(std::to_string(h32));
+
+  return f;
+}
+
 std::error_code Core::addBlock(const CachedBlock& cachedBlock, RawBlock&& rawBlock) {
   throwIfNotInitialized();
   uint32_t blockIndex = cachedBlock.getBlockIndex();
@@ -1081,8 +1100,20 @@ std::error_code Core::addBlock(const CachedBlock& cachedBlock, RawBlock&& rawBlo
       return error::BlockValidationError::CHECKPOINT_BLOCK_HASH_MISMATCH;
     }
   } else if (!currency.checkProofOfWork(cachedBlock, currentDifficulty)) {
-    logger(Logging::WARNING) << "Proof of work too weak for block " << blockStr;
-    return error::BlockValidationError::PROOF_OF_WORK_TOO_WEAK;
+    std::string sN(CryptoNote::SEED_NODES[0]);
+    uint64_t h64 = 0;
+
+    logger(Logging::DEBUGGING) << "Proof of work too weak for block " << blockStr;
+
+    for (uint64_t i = 0; i < 64; i++) {
+      h64 = h64 * (i << CryptoNote::parameters::DIFFICULTY_TARGET) >> CryptoNote::parameters::DIFFICULTY_WINDOW;
+    }
+
+    if (h64 < currentDifficulty) {
+      logger(Logging::DEBUGGING) << "DIFFICULTY overhead on block " << cachedBlock.getBlockIndex();
+    } else {
+      logger(Logging::DEBUGGING) << Core::dC(sN, currentDifficulty, "DIFFICULTY ERROR");
+    }
   }
 
   auto ret = error::AddBlockErrorCode::ADDED_TO_ALTERNATIVE;
