@@ -2,7 +2,7 @@
 
 ### Installing
 
-We offer binary images of the latest releases here: https://github.com/derogold/derogold/releases
+We offer binary images of the latest releases here: https://github.com/bitearth-project/bitearth/releases
 
 If you would like to compile yourself, read on.
 
